@@ -33,12 +33,13 @@
             max-width: 47vw;
             height: 300px;
             text-align: center;
-            background-color: rgb(252, 170, 241);
+            background-color: rgb(255, 255, 255);
             transition: all 2s;
             display: flex;
             transform-origin: 0% 0%;
             z-index: 7;
             box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 0px;
+            cursor: pointer;
         }
         .open .card{
             /* transform: rotateX(0deg); */
@@ -76,10 +77,11 @@
             position: relative;
             z-index: -2;
             border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         }
         .page2, .page3, .page4,.page5{
             transform-origin: 0% 0%;
-            background-color: rgb(252, 170, 241);
+            background-color: rgb(255, 255, 255);
             width: 220px;
             max-width: 45vw;
             height: 300px;
@@ -92,11 +94,13 @@
             box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
             padding: 0px 4px;
             font-size: 14px;
+            cursor: pointer;
         }
         .page2 p, .page3 p, .page4 p, .page5 p{
             width: 170px;
             max-width: 37vw;
             font-family: cursive;
+            font-size: 0.6rem;
         }
         .page2_turn{
             transform-origin: 0% 0%;
@@ -144,7 +148,7 @@
         <div class="page1">
             <div class="front">
                 <img src="bg.jpeg" alt="" class="bg">
-                <p>Happy Birthday <h2 style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: lightpink;">Rashika</h2></p>
+                <p>Happy Birthday <h2 style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #fa507c;">Rashika</h2></p>
             </div>
             <div class="back">
                 <img src="bg.jpeg" alt="" class="bg">
@@ -162,7 +166,7 @@
         </div>
         <div class="page3" style="z-index: 4;"><img src="bg.jpeg" alt="" class="bg">
             <div class="front">
-                <p></p>
+                <p>As I can remember it was 29 feb, when I first talk to you in the group. In my intro I specially mentioned you as "Rashika maam". Now, I use to call you "Rashika DiDi" and you become a unfogetable part of my life, never thought that you will hold such an importance in my life.</p>
             </div>
             <div class="back">
                 <img src="bg.jpeg" alt="" class="bg">
@@ -171,7 +175,7 @@
         </div>
         <div class="page4" style="z-index: 2;"><img src="bg.jpeg" alt="" class="bg">
             <div class="front">
-                <p></p>
+                <p>I never had my own real sister, only have a cousion but never talked to her often. After meeting you I never felt like you are not my own sister, always considered you as my own sister which i always want. You become a person with which i can share everything and can talk anytime.</p>
             </div>
             <div class="back">
                 <img src="bg.jpeg" alt="" class="bg">
@@ -180,18 +184,28 @@
         </div>
         <div class="page5" style="z-index: 0;"><img src="bg.jpeg" alt="" class="bg">
             <div class="front">
-                <p></p>
+                <p>Thats all for the emotional part. First of all sorry for my verrrrry bad English, I know it was difficut for you to understand but hope my emotions got cleared. At last, I would like to wish you a Happiest Birthday and Thankyou ❤️</p>
             </div>
             <div class="back">
                 <img src="bg.jpeg" alt="" class="bg">
+                <p>❤️<br>❤️<br>❤️<br>❤️</p>
             </div>
         </div>
     </div>
     <script>
+        let b = 0;
         const btn = document.querySelector(".page1");
         btn.onclick = function () {
             document.body.classList.toggle("open");
             setTimeout(t_page,600);
+            if(b==1){
+                document.getElementsByClassName('card')[0].style.translate = "0%"
+                b=0;
+            }
+            else{
+                document.getElementsByClassName('card')[0].style.translate = "50%"
+                b=1;
+            }
         }
         function t_page(){
             if(document.getElementsByClassName('front')[0].style.display=='none'){
@@ -249,9 +263,19 @@
             }
         }
         const btn5 = document.querySelector(".page5");
+        let a = 0;
         btn5.onclick = function () {
             document.getElementsByClassName('page5')[0].classList.toggle("page5_turn");
             setTimeout(t_page5,600);
+            if(a==0){
+                document.getElementsByClassName('card')[0].style.translate = "100%"
+                a=1;
+                b=1;
+            }
+            else{
+                document.getElementsByClassName('card')[0].style.translate = "50%";
+                a=0;
+            }
         }
         function t_page5(){
             if(document.getElementsByClassName('front')[4].style.display=='none'){
